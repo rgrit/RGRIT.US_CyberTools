@@ -1,0 +1,102 @@
+===== Start of misc.xml =====
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Black">
+    <option name="sdkName" value="Python 3.12 (SecurityNewsFeed)" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 (Auto-Sigma)" project-jdk-type="Python SDK" />
+</project>
+===== End of misc.xml =====
+
+===== Start of .gitignore.txt =====
+# Default ignored files
+/shelf/
+/workspace.xml
+
+===== End of .gitignore.txt =====
+
+===== Start of .gitignore =====
+# Default ignored files
+/shelf/
+/workspace.xml
+
+===== End of .gitignore =====
+
+===== Start of vcs.txt =====
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/sigint_project/reports" vcs="Git" />
+  </component>
+</project>
+===== End of vcs.txt =====
+
+===== Start of vcs.xml =====
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/sigint_project/reports" vcs="Git" />
+  </component>
+</project>
+===== End of vcs.xml =====
+
+===== Start of modules.xml =====
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/SecurityNewsFeed.iml" filepath="$PROJECT_DIR$/.idea/SecurityNewsFeed.iml" />
+    </modules>
+  </component>
+</project>
+===== End of modules.xml =====
+
+===== Start of modules.txt =====
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/SecurityNewsFeed.iml" filepath="$PROJECT_DIR$/.idea/SecurityNewsFeed.iml" />
+    </modules>
+  </component>
+</project>
+===== End of modules.txt =====
+
+===== Start of SecurityNewsFeed.iml =====
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.venv" />
+    </content>
+    <orderEntry type="jdk" jdkName="Python 3.12 (Auto-Sigma)" jdkType="Python SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
+===== End of SecurityNewsFeed.iml =====
+
+===== Start of misc.txt =====
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Black">
+    <option name="sdkName" value="Python 3.12 (SecurityNewsFeed)" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 (Auto-Sigma)" project-jdk-type="Python SDK" />
+</project>
+===== End of misc.txt =====
+
+===== Start of SecurityNewsFeed.txt =====
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.venv" />
+    </content>
+    <orderEntry type="jdk" jdkName="Python 3.12 (Auto-Sigma)" jdkType="Python SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
+===== End of SecurityNewsFeed.txt =====
+
