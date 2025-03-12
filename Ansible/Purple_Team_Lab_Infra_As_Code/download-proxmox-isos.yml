@@ -1,0 +1,33 @@
+# ansible-playbook -i hosts.yml download-proxmox-isos.yml -b -K
+---
+- name: Download ISOs to Proxmox ISO Storage
+  hosts: proxmox
+  become: yes
+  vars:
+    iso_storage: "/var/lib/vz/template/iso"
+    iso_files:
+      - url: "https://cdimage.kali.org/kali-2024.4/kali-linux-2024.4-installer-amd64.iso"
+        dest: "kali-linux-2024.4-installer-amd64.iso"
+      - url: "https://releases.ubuntu.com/jammy/ubuntu-22.04.5-live-server-amd64.iso"
+        dest: "ubuntu-22.04.5-live-server-amd64.iso"
+      - url: "https://download.securityonion.net/file/securityonion/securityonion-2.4.130-20250311.iso"
+        dest: "securityonion-2.4.130-20250311.iso"
+      - url: "https://download.sys.truenas.net/TrueNAS-SCALE-ElectricEel/24.10.2/TrueNAS-SCALE-24.10.2.iso"
+        dest: "TrueNAS-SCALE-24.10.2.iso"
+      - url: "https://sourceforge.net/projects/dragonos-focal/files/DragonOS_FocalX_R37.1.iso/download"
+        dest: "DragonOS_FocalX_R37.1.iso"
+      - url: "https://cdimage.ubuntu.com/ubuntustudio/releases/noble/release/ubuntustudio-24.04.2-dvd-amd64.iso"
+        dest: "ubuntustudio-24.04.2-dvd-amd64.iso"
+  tasks:
+    - name: Ensure Proxmox ISO storage directory exists
+      file:
+        path: "{{ iso_storage }}"
+        state: directory
+        mode: '0755'
+
+    - name: Download ISO files to Proxmox ISO storage
+      get_url:
+        url: "{{ item.url }}"
+        dest: "{{ iso_storage }}/{{ item.dest }}"
+        mode: '0644'
+      loop: "{{ iso_files }}"

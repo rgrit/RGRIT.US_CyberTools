@@ -1,0 +1,31 @@
+---
+- name: Create VMs on Proxmox
+  hosts: proxmox
+  gather_facts: no
+  tasks:
+    - name: Create Virtual Machines
+      community.general.proxmox_kvm:
+        api_host: "{{ ansible_host }}"
+        api_user: "root@pam"
+        api_token_id: "ansible"
+        api_token_secret: "<<APIKEY>>"  # Replace with actual token secret
+        node: "pve"
+        vmid: "{{ item.vmid }}"
+        name: "{{ item.name }}"
+        memory: "{{ item.ram }}"
+        cores: "{{ item.cpu }}"
+        sockets: 1
+        net:
+          net0: "virtio,bridge=vmbr0"
+        boot: "order=scsi0"
+        scsihw: "virtio-scsi-pci"
+        ide:
+          ide2: "local:iso/{{ item.iso }},media=cdrom"
+        scsi:
+          scsi0: "local-lvm:{{ item.storage }}"
+        state: present
+        validate_certs: no
+      loop:
+        - { name: "kali-linux", vmid: 100, cpu: 4, ram: 8192, storage: 50, iso: "kali-linux-2024.4-installer-amd64.iso" }
+        - { name: "wazuh-ubuntu", vmid: 101, cpu: 4, ram: 8192, storage: 50, iso: "ubuntu-22.04.5-live-server-amd64.iso" }
+        - { name: "purple-lab", vmid: 102, cpu: 8, ram: 13312, storage: 200, iso: "ubuntu-22.04.5-live-server-amd64.iso" }

@@ -2,8 +2,8 @@ import os
 import subprocess
 
 # Paths
-DUCKY_SCRIPTS_DIR = "/home/administrator/PycharmProjects/RGRIT.US/Ducky_Scripts"
-DUCK_ENCODER_JAR = "/home/administrator/PycharmProjects/RGRIT.US/Ducky_Scripts/encoder.jar"
+DUCKY_SCRIPTS_DIR = "RGRIT.US/Ducky_Scripts"
+DUCK_ENCODER_JAR = "RGRIT.US/Ducky_Scripts/encoder.jar"
 
 # Ensure the duckencoder.jar file exists
 if not os.path.exists(DUCK_ENCODER_JAR):

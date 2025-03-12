@@ -1,0 +1,115 @@
+# ansible-playbook -i hosts.yml proxmox-initial-setup.yml -b -K
+---
+- name: Prepare Proxmox Repositories
+  hosts: proxmox
+  become: yes
+  tasks:
+    - name: Disable Proxmox Enterprise Repository file
+      file:
+        path: /etc/apt/sources.list.d/pve-enterprise.list
+        state: absent
+      # This removes the enterprise repository file
+
+    - name: Remove Ceph Quincy Enterprise Repository file if present
+      file:
+        path: /etc/apt/sources.list.d/ceph-quincy-enterprise.list
+        state: absent
+      # Removing any Ceph Quincy enterprise repository file
+
+    - name: Remove any apt source files in /etc/apt/sources.list.d that reference enterprise.proxmox.com
+      shell: "grep -Rl 'enterprise.proxmox.com' /etc/apt/sources.list.d/ | xargs -r rm -f"
+
+    - name: Remove any lines referencing enterprise.proxmox.com from /etc/apt/sources.list
+      lineinfile:
+        path: /etc/apt/sources.list
+        regexp: '.*enterprise.proxmox.com.*'
+        state: absent
+
+    - name: Find all apt source files in /etc/apt/sources.list.d
+      find:
+        paths: /etc/apt/sources.list.d
+        patterns: '*.list'
+      register: apt_list_files
+
+    - name: Remove lines containing 'enterprise.proxmox.com' from found apt source files
+      lineinfile:
+        path: "{{ item.path }}"
+        regexp: '.*enterprise.proxmox.com.*'
+        state: absent
+      loop: "{{ apt_list_files.files }}"
+
+    - name: Enable Non-Enterprise Proxmox Repository
+      copy:
+        dest: /etc/apt/sources.list.d/pve-no-subscription.list
+        content: "deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription\n"
+
+- name: Setup Proxmox Server with NIC Passthrough
+  hosts: proxmox
+  become: yes
+  vars:
+    reboot_required: false
+  tasks:
+    # NOTE: Package update/upgrade is done manually for now.
+    # - name: Update package cache and upgrade system
+    #   apt:
+    #     update_cache: yes
+    #     upgrade: dist
+
+    - name: Install necessary Proxmox packages
+      apt:
+        name:
+          - qemu-guest-agent
+          - curl
+          - vim
+          - git
+        state: present
+
+    - name: Enable IOMMU and PCIe passthrough in GRUB
+      lineinfile:
+        path: /etc/default/grub
+        regexp: '^GRUB_CMDLINE_LINUX_DEFAULT='
+        line: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt"'
+      notify: Set Reboot Required
+
+    - name: Load necessary kernel modules for PCI passthrough
+      copy:
+        dest: /etc/modules
+        content: |
+          vfio
+          vfio_pci
+          vfio_iommu_type1
+      notify: Set Reboot Required
+
+    - name: Identify all physical network interfaces
+      shell: "lspci -nn | grep -i 'Ethernet' | awk '{print $1}'"
+      register: nic_list
+
+    - name: Bind NICs to VFIO driver
+      shell: echo "vfio-pci" > /sys/bus/pci/devices/0000:{{ item }}/driver_override
+      loop: "{{ nic_list.stdout_lines }}"
+      when: nic_list.stdout_lines | length > 0
+      notify: Set Reboot Required
+
+    - name: Add all NICs to all VMs
+      shell: |
+        for vmid in $(qm list | awk 'NR>1 {print $1}'); do
+          for nic in {{ nic_list.stdout_lines }}; do
+            qm set $vmid --hostpci$(( $(qm config $vmid | grep -c hostpci) + 1 )) 0000:$nic
+          done
+        done
+      when: nic_list.stdout_lines | length > 0
+
+    - name: Flush handlers to apply pending changes
+      meta: flush_handlers
+
+  handlers:
+    - name: Set Reboot Required
+      set_fact:
+        reboot_required: true
+
+    - name: Update GRUB
+      command: update-grub
+
+    - name: Reboot Server
+      reboot:
+      when: reboot_required | bool
