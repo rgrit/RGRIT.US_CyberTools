@@ -1,0 +1,22 @@
+title: Correlation - Flipper Zero BadUSB Repeated Insertion Events
+id: 7f8d2b90-5b44-4e0a-9a2f-abcdef123456
+status: experimental
+description: |
+  Aggregates USB device insertion events flagged by the detection rule 
+  "Flipper Zero BadUSB Suspicious USB Identifiers Detected" (ID: 9a4ca818-1330-4a10-82e5-307333c34269). 
+  Three or more such events occurring within a 5-minute timespan on the same host may indicate 
+  unauthorized or automated BadUSB activity using a Flipper Zero device.
+author: Joseph Maxim Rosbury III
+date: 2025-03-11
+correlation:
+  type: event_count
+  rules:
+    - 9a4ca818-1330-4a10-82e5-307333c34269
+  group-by:
+    - ComputerName
+  timespan: 5m
+  condition:
+    gte: 3
+falsepositives:
+  - Rapid plug/unplug events during legitimate hardware testing or maintenance.
+level: medium
