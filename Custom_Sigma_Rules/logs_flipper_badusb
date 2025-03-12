@@ -1,0 +1,79 @@
+cat /var/log/syslog | grep "1234:ABCD"
+2025-03-11T08:28:23.347457-04:00 workstation kernel: input: Generic USB Keyboard as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0028/input/input81
+2025-03-11T08:28:23.439450-04:00 workstation kernel: input: Generic USB Keyboard Mouse as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0028/input/input82
+2025-03-11T08:28:23.439453-04:00 workstation kernel: hid-generic 0003:1234:ABCD.0028: input,hidraw0: USB HID v1.00 Keyboard [Generic USB Keyboard] on usb-0000:00:14.0-1/input0
+2025-03-11T08:28:23.471481-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0028/input/input81/event4"
+2025-03-11T08:28:23.474096-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0028/input/input81/event4"
+2025-03-11T08:28:23.479613-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0028/input/input82/event24"
+2025-03-11T17:57:27.052481-04:00 workstation kernel: input: Generic USB Keyboard as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.002C/input/input85
+2025-03-11T17:57:27.131452-04:00 workstation kernel: input: Generic USB Keyboard Mouse as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.002C/input/input86
+2025-03-11T17:57:27.131459-04:00 workstation kernel: hid-generic 0003:1234:ABCD.002C: input,hidraw0: USB HID v1.00 Keyboard [Generic USB Keyboard] on usb-0000:00:14.0-1/input0
+2025-03-11T17:57:27.177064-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.002C/input/input85/event4"
+2025-03-11T17:57:27.179116-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.002C/input/input85/event4"
+2025-03-11T17:57:27.182081-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.002C/input/input86/event24"
+2025-03-11T18:00:37.164442-04:00 workstation kernel: input: Generic USB Keyboard as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.002D/input/input87
+2025-03-11T18:00:37.242438-04:00 workstation kernel: input: Generic USB Keyboard Mouse as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.002D/input/input88
+2025-03-11T18:00:37.242446-04:00 workstation kernel: hid-generic 0003:1234:ABCD.002D: input,hidraw0: USB HID v1.00 Keyboard [Generic USB Keyboard] on usb-0000:00:14.0-1/input0
+2025-03-11T18:00:37.287863-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.002D/input/input88/event24"
+2025-03-11T18:00:37.291807-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.002D/input/input87/event4"
+2025-03-11T18:00:37.293490-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.002D/input/input87/event4"
+2025-03-11T18:09:07.290502-04:00 workstation kernel: input: Generic USB Keyboard as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.002E/input/input89
+2025-03-11T18:09:07.373490-04:00 workstation kernel: input: Generic USB Keyboard Mouse as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.002E/input/input90
+2025-03-11T18:09:07.373506-04:00 workstation kernel: hid-generic 0003:1234:ABCD.002E: input,hidraw0: USB HID v1.00 Keyboard [Generic USB Keyboard] on usb-0000:00:14.0-1/input0
+2025-03-11T18:09:07.416557-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.002E/input/input90/event24"
+2025-03-11T18:09:07.421665-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.002E/input/input89/event4"
+2025-03-11T18:09:07.423847-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.002E/input/input89/event4"
+2025-03-11T18:12:08.851518-04:00 workstation kernel: input: Generic USB Keyboard as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.002F/input/input91
+2025-03-11T18:12:08.943492-04:00 workstation kernel: input: Generic USB Keyboard Mouse as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.002F/input/input92
+2025-03-11T18:12:08.943513-04:00 workstation kernel: hid-generic 0003:1234:ABCD.002F: input,hidraw0: USB HID v1.00 Keyboard [Generic USB Keyboard] on usb-0000:00:14.0-1/input0
+2025-03-11T18:12:08.980902-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.002F/input/input91/event4"
+2025-03-11T18:12:08.982801-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.002F/input/input91/event4"
+2025-03-11T18:12:08.988364-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.002F/input/input92/event24"
+2025-03-11T18:19:27.290447-04:00 workstation kernel: input: Generic USB Keyboard as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0030/input/input93
+2025-03-11T18:19:27.375464-04:00 workstation kernel: input: Generic USB Keyboard Mouse as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0030/input/input94
+2025-03-11T18:19:27.375472-04:00 workstation kernel: hid-generic 0003:1234:ABCD.0030: input,hidraw0: USB HID v1.00 Keyboard [Generic USB Keyboard] on usb-0000:00:14.0-1/input0
+2025-03-11T18:19:27.417667-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0030/input/input93/event4"
+2025-03-11T18:19:27.419294-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0030/input/input93/event4"
+2025-03-11T18:19:27.428304-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0030/input/input94/event24"
+2025-03-11T18:21:34.696444-04:00 workstation kernel: input: Generic USB Keyboard as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0031/input/input95
+2025-03-11T18:21:34.784445-04:00 workstation kernel: input: Generic USB Keyboard Mouse as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0031/input/input96
+2025-03-11T18:21:34.784453-04:00 workstation kernel: hid-generic 0003:1234:ABCD.0031: input,hidraw0: USB HID v1.00 Keyboard [Generic USB Keyboard] on usb-0000:00:14.0-1/input0
+2025-03-11T18:21:34.834982-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0031/input/input96/event24"
+2025-03-11T18:21:34.839699-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0031/input/input95/event4"
+2025-03-11T18:21:34.841388-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0031/input/input95/event4"
+2025-03-11T18:27:28.166435-04:00 workstation kernel: input: Generic USB Keyboard as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0032/input/input97
+2025-03-11T18:27:28.246441-04:00 workstation kernel: input: Generic USB Keyboard Mouse as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0032/input/input98
+2025-03-11T18:27:28.246449-04:00 workstation kernel: hid-generic 0003:1234:ABCD.0032: input,hidraw0: USB HID v1.00 Keyboard [Generic USB Keyboard] on usb-0000:00:14.0-1/input0
+2025-03-11T18:27:28.280634-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0032/input/input98/event24"
+2025-03-11T18:27:28.284722-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0032/input/input97/event4"
+2025-03-11T18:27:28.286472-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0032/input/input97/event4"
+2025-03-11T18:30:15.522431-04:00 workstation kernel: input: Generic USB Keyboard as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0033/input/input99
+2025-03-11T18:30:15.607485-04:00 workstation kernel: input: Generic USB Keyboard Mouse as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0033/input/input100
+2025-03-11T18:30:15.607493-04:00 workstation kernel: hid-generic 0003:1234:ABCD.0033: input,hidraw0: USB HID v1.00 Keyboard [Generic USB Keyboard] on usb-0000:00:14.0-1/input0
+2025-03-11T18:30:15.648522-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0033/input/input100/event24"
+2025-03-11T18:30:15.654267-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0033/input/input99/event4"
+2025-03-11T18:30:15.655952-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0033/input/input99/event4"
+2025-03-11T18:35:00.432507-04:00 workstation kernel: input: Generic USB Keyboard as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0034/input/input101
+2025-03-11T18:35:00.526468-04:00 workstation kernel: input: Generic USB Keyboard Mouse as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0034/input/input102
+2025-03-11T18:35:00.526475-04:00 workstation kernel: hid-generic 0003:1234:ABCD.0034: input,hidraw0: USB HID v1.00 Keyboard [Generic USB Keyboard] on usb-0000:00:14.0-1/input0
+2025-03-11T18:35:00.571655-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0034/input/input101/event4"
+2025-03-11T18:35:00.574319-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0034/input/input101/event4"
+2025-03-11T18:35:00.579611-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0034/input/input102/event24"
+2025-03-11T18:57:14.423519-04:00 workstation kernel: input: Generic USB Keyboard as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0035/input/input103
+2025-03-11T18:57:14.515541-04:00 workstation kernel: input: Generic USB Keyboard Mouse as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0035/input/input104
+2025-03-11T18:57:14.515554-04:00 workstation kernel: hid-generic 0003:1234:ABCD.0035: input,hidraw0: USB HID v1.00 Keyboard [Generic USB Keyboard] on usb-0000:00:14.0-1/input0
+2025-03-11T18:57:14.556265-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0035/input/input104/event24"
+2025-03-11T18:57:14.561648-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0035/input/input103/event4"
+2025-03-11T18:57:14.563285-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0035/input/input103/event4"
+2025-03-11T19:00:33.050419-04:00 workstation kernel: input: Generic USB Keyboard as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0036/input/input105
+2025-03-11T19:00:33.126538-04:00 workstation kernel: input: Generic USB Keyboard Mouse as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0036/input/input106
+2025-03-11T19:00:33.126550-04:00 workstation kernel: hid-generic 0003:1234:ABCD.0036: input,hidraw0: USB HID v1.00 Keyboard [Generic USB Keyboard] on usb-0000:00:14.0-1/input0
+2025-03-11T19:00:33.173169-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0036/input/input105/event4"
+2025-03-11T19:00:33.175089-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0036/input/input105/event4"
+2025-03-11T19:00:33.177644-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:1234:ABCD.0036/input/input106/event24"
+2025-03-11T19:18:21.998400-04:00 workstation kernel: input: Generic USB Keyboard as /devices/pci0000:00/0000:00:14.0/usb1/1-4/1-4:1.0/0003:1234:ABCD.0037/input/input107
+2025-03-11T19:18:22.084405-04:00 workstation kernel: input: Generic USB Keyboard Mouse as /devices/pci0000:00/0000:00:14.0/usb1/1-4/1-4:1.0/0003:1234:ABCD.0037/input/input108
+2025-03-11T19:18:22.084411-04:00 workstation kernel: hid-generic 0003:1234:ABCD.0037: input,hidraw0: USB HID v1.00 Keyboard [Generic USB Keyboard] on usb-0000:00:14.0-4/input0
+2025-03-11T19:18:22.116815-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-4/1-4:1.0/0003:1234:ABCD.0037/input/input107/event4"
+2025-03-11T19:18:22.120067-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-4/1-4:1.0/0003:1234:ABCD.0037/input/input107/event4"
+2025-03-11T19:18:22.124648-04:00 workstation /usr/libexec/gdm-x-session[2994]: (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-4/1-4:1.0/0003:1234:ABCD.0037/input/input108/event24"

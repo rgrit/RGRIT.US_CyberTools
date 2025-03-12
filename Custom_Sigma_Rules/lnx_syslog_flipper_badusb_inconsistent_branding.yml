@@ -1,0 +1,30 @@
+title: Flipper Zero BadUSB Inconsistent Device Branding
+id: f1e2d3c4-b5a6-7890-1234-56789abcdef0
+description: |
+  Detects USB device logs where the device is identified with the unusual manufacturer 
+  "Brain Actuated Technologies" yet is registered as "Generic USB Keyboard". This inconsistency 
+  suggests that the device is masquerading as a benign peripheral.
+status: experimental
+author: Joseph Maxim Rosbury III
+date: 2025-03-11
+references:
+  - https://flipperzero.one/
+  - https://unix.stackexchange.com/questions/290198/all-usb-devices-that-were-connected-ever
+tags:
+    - attack.tag:USB
+    - attack.tag:hardware
+    - attack.tag:masquerading
+    - attack.tag:badusb
+    - attack.tag:flipper-zero
+logsource:
+  product: linux
+  service: syslog
+detection:
+  selection:
+    Message|all:
+      - "Brain Actuated Technologies"
+      - "Generic USB Keyboard"
+  condition: selection
+falsepositives:
+  - Custom or research devices intentionally using these strings.
+level: high

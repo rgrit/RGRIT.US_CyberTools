@@ -1,0 +1,32 @@
+title: Flipper Zero BadUSB Suspicious USB Identifiers Detected
+id: 9a4ca818-1330-4a10-82e5-307333c34269
+description: |
+  Detects USB device insertion events containing one or more indicators 
+  associated with Flipper Zero BadUSB devices:
+  - Unusual vendor/product ID "1234:ABCD"
+  - Manufacturer "Brain Actuated Technologies"
+  - Registered as "Generic USB Keyboard"
+status: experimental
+author: Joseph Maxim Rosbury III
+date: 2025-03-11
+references:
+  - https://flipperzero.one/
+  - https://unix.stackexchange.com/questions/290198/all-usb-devices-that-were-connected-ever
+tags:
+    - attack.tag:USB
+    - attack.tag:hardware
+    - attack.tag:badusb
+    - attack.tag:flipper-zero
+logsource:
+  product: linux
+  service: syslog
+detection:
+  selection:
+    Message|contains:
+      - "1234:ABCD"
+      - "Brain Actuated Technologies"
+      - "Generic USB Keyboard"
+  condition: selection
+falsepositives:
+  - Legitimate test devices or research hardware intentionally using these identifiers.
+level: high
