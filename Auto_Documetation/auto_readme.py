@@ -7,7 +7,7 @@ from datetime import datetime
 REPO_PATH = "/home/administrator/PycharmProjects/CyberTools"  # Path to the root of the repository
 OUTPUT_DIR = "/home/administrator/PycharmProjects/CyberTools/Auto_Documetation/docs"  # Directory to save the README file
 README_FILENAME = "/home/administrator/PycharmProjects/CyberTools/README.md"
-MODEL_NAME = "llama3.3:latest"  # Example model name for Ollama or API (adjust as needed)
+MODEL_NAME = "llama3.3"  # Example model name for Ollama or API (adjust as needed)
 GITHUB_URL = "https://github.com/rgrit/RGRIT.US_CyberTools/blob/main"  # Base GitHub URL for the repository
 
 print("[INFO] Starting README auto-generator in repository:", REPO_PATH)
@@ -16,7 +16,7 @@ print("[INFO] Starting README auto-generator in repository:", REPO_PATH)
 os.makedirs(os.path.join(REPO_PATH, OUTPUT_DIR), exist_ok=True)
 print(f"[INFO] Output directory verified: {OUTPUT_DIR}")
 
-# 1. Scan for all .py and .yml files in the repository, skipping .venv directories
+# 1. Scan for all .py and .yml files in the repository, skipping .venv directories and specific file (auto_readme.py)
 files_found = []
 print("[INFO] Scanning for Python and YAML files...")
 
@@ -28,6 +28,9 @@ for root, dirs, files in os.walk(REPO_PATH):
     if OUTPUT_DIR in root.split(os.sep):
         continue
     for file in files:
+        # Skip the specific file we want to ignore (auto_readme.py)
+        if file == "auto_readme.py":
+            continue
         if file.endswith((".py", ".yml")):  # Include both .py and .yml files
             file_path = os.path.join(root, file)
             # Get path relative to repo root for categorization
@@ -62,13 +65,10 @@ def generate_description(file_path):
         with open(file_path, 'r', encoding='utf-8') as f:
             content = f.read()
 
-        # (Optional) Truncate or summarize content if it's too large for the model
-        if len(content) > 10000:  # if file is extremely large, truncate for prompt
-            content = content[:10000] + "\n... (truncated)"
 
         # Prepare the prompt for the model
         prompt = (
-            "Analyze the following file and provide a concise description of its functionality. Please STRICTLY limit the description to 140 characters:\n"
+            "Analyze the following file and provide a concise description of its functionality. Please STRICTLY limit the description to 280 characters:\n"
             f"{content}\n"
             "Description:"
         )
@@ -92,6 +92,10 @@ def generate_description(file_path):
             desc = "*(No description provided by AI)*"
 
         print(f"[DEBUG] Description for {file_path}: {desc[:60]}...")
+
+        # Post-process the description to ensure it's under 140 characters
+        if len(desc) > 140:
+            desc = desc[:137] + "..."  # Truncate to 140 characters including the ellipses
         return desc
     except Exception as e:
         # In case of errors (e.g., model not available), return a placeholder
