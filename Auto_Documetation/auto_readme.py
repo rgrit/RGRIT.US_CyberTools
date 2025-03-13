@@ -6,8 +6,8 @@ from datetime import datetime
 # Configuration
 REPO_PATH = "/home/administrator/PycharmProjects/CyberTools"  # Path to the root of the repository
 OUTPUT_DIR = "/home/administrator/PycharmProjects/CyberTools/Auto_Documetation/docs"  # Directory to save the README file
-README_FILENAME = "/home/administrator/PycharmProjects/CyberTools/Auto_README.md"
-MODEL_NAME = "granite3.2:latest"  # Example model name for Ollama or API (adjust as needed)
+README_FILENAME = "/home/administrator/PycharmProjects/CyberTools/README.md"
+MODEL_NAME = "llama3.3:latest"  # Example model name for Ollama or API (adjust as needed)
 GITHUB_URL = "https://github.com/rgrit/RGRIT.US_CyberTools/blob/main"  # Base GitHub URL for the repository
 
 print("[INFO] Starting README auto-generator in repository:", REPO_PATH)
@@ -68,7 +68,7 @@ def generate_description(file_path):
 
         # Prepare the prompt for the model
         prompt = (
-            "Analyze the following file and provide a concise description of its functionality. Please limit the description to 140 characters:\n"
+            "Analyze the following file and provide a concise description of its functionality. Please STRICTLY limit the description to 140 characters:\n"
             f"{content}\n"
             "Description:"
         )
