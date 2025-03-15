@@ -9,6 +9,9 @@ All content provided in this repository is strictly for educational and research
 **Ethical and Legal Responsibility**  
 You are solely responsible for ensuring that your use of these materials complies with all applicable laws and ethical standards. Unauthorized or malicious use is strictly prohibited and may result in legal action.
 
+**AI-Generated Content**
+Approximately 99% of the content in this repository has been generated using advanced AI tools. This reflects the significant role that generative AI plays in the creation of these materials, showcasing modern capabilities in the field.
+
 **No Warranty**  
 All scripts, tools, and documentation are provided "as-is" without any warranty. The authors and contributors assume no responsibility for any consequences arising from the use or misuse of these resources.
 
