@@ -30,5 +30,20 @@
   "OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/reporting/report_generator.py": "**Threat Intelligence Report Generator**\n======================================\n\nThis script generates a Markdown report for a single thr...",
   "OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/utils/api_utils.py": "Queries LLaMA API with retries, handling timeouts and exceptions.",
   "OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/utils/file_utils.py": "Loads/saves article IDs from/to a JSON file.",
-  "OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/utils/rss_utils.py": "Fetches and parses an RSS feed from a given URL, handling exceptions."
+  "OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/utils/rss_utils.py": "Fetches and parses an RSS feed from a given URL, handling exceptions.",
+  "Flipper_Zero/flipper_rf_lock.py": "Python script for rapid RF signal scanning using a serial connection.",
+  "Flipper_Zero/rf_auto_scan_decode.py": "RF signal scanner using serial interface to detect activity.",
+  "Flipper_Zero/flipper_log_rf.py": "Python script connecting to Flipper Zero via serial port, reading and printing received data.",
+  "Flipper_Zero/flipper_rf_scan_log.py": "Python script scanning RF signals using Flipper device and logging results.",
+  "wigle_wifi_android/plot_groups_of_devices.py": "Python script to cluster & visualize nearby Bluetooth devices from CSV data.",
+  "wigle_wifi_android/frequency_plot.py": "Analyzes Wi-Fi data from a CSV file, plotting channel and frequency distributions.",
+  "wigle_wifi_android/11_meter_grouping.py": "Analyzes Wi-Fi data, calculating distances between access points.",
+  "wigle_wifi_android/signal_strength_heatmap.py": "Generates Wi-Fi RSSI interactive heatmap from CSV data using Folium and Pandas.",
+  "wigle_wifi_android/new_thing.py": "Python script analyzing Wi-Fi data from a CSV file, generating interactive maps with Folium.",
+  "wigle_wifi_android/weak_auth.py": "WiFi network scanner for open & WEP encrypted networks, generating Markdown reports.",
+  "wigle_wifi_android/authmode_wildcard_drilldown.py": "Python script for wildcard search in CSV, generating Markdown reports.",
+  "wigle_wifi_android/data_pre-processing.py": "**Loads Wigle CSV files into a pandas DataFrame.**",
+  "wigle_wifi_android/geospatial_mapping.py": "Generates interactive Wi-Fi network maps from CSV files using Folium.",
+  "RTL-SDRv4/discover_stuff.py": "RTL-SDR script to scan 2.4GHz band and capture raw RF signals from keyboards.",
+  "RTL-SDRv4/detect_analyze_broad_spectrum.py": "**Loads CSV, extracts frequency & amplitude, applies Savitzky-Golay filter, and plots raw vs. smoothed data.**"
 }
