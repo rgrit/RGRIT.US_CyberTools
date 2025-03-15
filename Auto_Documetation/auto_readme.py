@@ -6,92 +6,86 @@ from datetime import datetime
 # Configuration
 REPO_PATH = "/home/administrator/PycharmProjects/CyberTools"
 OUTPUT_DIR = "Auto_Documetation/docs"
-README_FILENAME = "/home/administrator/PycharmProjects/CyberTools/README.md"
 MODEL_NAME = "llama3.3"
 GITHUB_URL = "https://github.com/rgrit/RGRIT.US_CyberTools/blob/main"
+README_FILENAME = os.path.join(REPO_PATH, "README.md")
+HISTORY_PATH = os.path.join(REPO_PATH, OUTPUT_DIR, "readme_index.json")
 
-print("[INFO] Starting README auto-generator in repository:", REPO_PATH)
-
+# Ensure output directory exists
 os.makedirs(os.path.join(REPO_PATH, OUTPUT_DIR), exist_ok=True)
 
-# Load existing descriptions
-history_path = os.path.join(REPO_PATH, OUTPUT_DIR, "readme_index.json")
-existing_history = {}
-if os.path.exists(history_path):
-    try:
-        with open(history_path, 'r', encoding='utf-8') as hist_file:
-            existing_history = json.load(hist_file)
-        print("[INFO] Loaded existing history successfully.")
-    except json.JSONDecodeError:
-        print("[WARNING] JSON decode error; starting fresh.")
+# Load or initialize history
+if os.path.exists(HISTORY_PATH):
+    with open(HISTORY_PATH, 'r', encoding='utf-8') as hist_file:
+        history = json.load(hist_file)
 else:
-    print("[INFO] No existing history found; starting fresh.")
+    history = {}
 
-# Find new files to analyze
-files_found = []
-for root, dirs, files in os.walk(REPO_PATH):
-    dirs[:] = [d for d in dirs if d != '.venv' and d != 'docs']
-    for file in files:
-        if file.endswith((".py", ".yml")) and file != "auto_readme.py":
-            file_path = os.path.relpath(os.path.join(root, file), REPO_PATH)
-            if file_path not in existing_history:
-                files_found.append(file_path)
-
-print(f"[INFO] {len(files_found)} new files to analyze.")
-
-# Description generator
-def generate_description(file_path):
-    try:
-        with open(file_path, 'r', encoding='utf-8') as f:
-            content = f.read()
-        prompt = f"Analyze this file and provide a concise description strictly limited to 280 characters:\n{content}\nDescription:"
-        response = ollama.chat(model=MODEL_NAME, messages=[{"role": "user", "content": prompt}])
-        desc = response['message']['content'].strip()
-        return desc[:140] + "..." if len(desc) > 140 else desc
-    except Exception as e:
-        print(f"[ERROR] Generating description failed for {file_path}: {e}")
-        return "*(Description generation failed)*"
-
-# Generate descriptions with clear debugging
-categories = {}
 new_descriptions = {}
-for idx, file_rel_path in enumerate(files_found, start=1):
-    print(f"[ANALYZING {idx}/{len(files_found)}]: {file_rel_path}")
-    file_full_path = os.path.join(REPO_PATH, file_rel_path)
-    desc = generate_description(file_full_path)
-    new_category = file_rel_path.split(os.sep)[1] if len(file_rel_path.split(os.sep)) > 1 else "Root"
-    categories.setdefault(new_category, []).append(file_rel_path)
-    existing_history[file_rel_path] = desc
 
-# Prepare recent updates
-recent_updates = [f"🆕 **Added** `{file}`" for file in files_found]
+# Scan repository for files
+for root, dirs, files in os.walk(REPO_PATH):
+    dirs[:] = [d for d in dirs if d not in ['.venv', OUTPUT_DIR.split('/')[0]]]
+    for file in files:
+        if file.endswith(('.py', '.yml')) and file != "auto_readme.py":
+            rel_path = os.path.relpath(os.path.join(root, file), REPO_PATH)
+
+            if rel_path not in history:
+                print(f"[INFO] Analyzing new file: {rel_path}")
+                try:
+                    with open(os.path.join(root, file), 'r', encoding='utf-8') as f:
+                        content = f.read()
+                    response = ollama.chat(model=MODEL_NAME, messages=[{"role": "user", "content": f"Provide a concise description (max 140 chars) of this script:\n{content}"}])
+                    desc = response['message']['content'].strip()[:140]
+                except Exception as e:
+                    desc = "*(Description generation failed)*"
+
+                history[rel_path] = desc
+                new_descriptions[rel_path] = desc
+
+# Save updated history
+with open(HISTORY_PATH, 'w', encoding='utf-8') as f:
+    json.dump(history, f, indent=2)
+
+# Robust Disclaimer
+DISCLAIMER_TEXT = """
+# 🚨 Disclaimer
+
+**Educational & Research Purposes Only**  
+All content provided in this repository is strictly for educational and research purposes. Users must adhere to ethical and legal guidelines when utilizing any scripts, tools, or resources contained herein.
+
+**Ethical and Legal Responsibility**  
+You are solely responsible for ensuring that your use of these materials complies with all applicable laws and ethical standards. Unauthorized or malicious use is strictly prohibited and may result in legal action.
+
+**No Warranty**  
+All scripts, tools, and documentation are provided \"as-is\" without any warranty. The authors and contributors assume no responsibility for any consequences arising from the use or misuse of these resources.
+
+By using this repository, you acknowledge and agree to these terms.
+"""
+
+# Generate main README
 update_date = datetime.now().strftime("%Y-%m-%d")
+readme_lines = ["# 🚀 RGRIT CyberTools 🔥\n", DISCLAIMER_TEXT, f"\n## Recent Updates ({update_date})\n"]
 
-# Build README
-readme_content = [f"# 🚀 **RGRIT CyberTools** 🔥", f"## Recent Updates (as of {update_date})"]
-readme_content += [f"- {update}" for update in recent_updates] or ["- *(No recent changes detected)*"]
+for new_file in new_descriptions:
+    readme_lines.append(f"- 🆕 **Added** `{new_file}`")
 
-readme_content.append("\n## Repository Overview")
-for category in sorted(categories):
-    readme_content.append(f"### 📁 `{category}/` Directory")
-    readme_content.append("| 📄 **Script Name** | **Description** | **Link** |");
-    readme_content.append("| ----------------- | --------------- | -------- |");
-    for file in categories[category]:
-        desc = existing_history.get(file, "*(No description provided)*")
-        file_link = f"{GITHUB_URL}/{file}"
-        readme_content.append(f"| `{file}` | {desc} | [Link]({file_link}) |");
-    readme_content.append("")
+categories = {}
+for file, desc in history.items():
+    category = file.split(os.sep)[1] if len(file.split(os.sep)) > 1 else "Root"
+    categories.setdefault(category, {})[file] = desc
 
-# Save README
-output_path = os.path.join(REPO_PATH, OUTPUT_DIR, README_FILENAME)
-with open(output_path, 'w', encoding='utf-8') as f:
-    f.write("\n".join(readme_content))
+readme_lines.append("\n## Repository Overview\n")
+for cat, files in sorted(categories.items()):
+    readme_lines.append(f"### 📁 `{cat}` Directory")
+    readme_lines.append("| 📄 **Script Name** | **Description** | **Link** |")
+    readme_lines.append("|-----------------|---------------|--------|")
+    for file, desc in files.items():
+        link = f"{GITHUB_URL}/{file}"
+        readme_lines.append(f"| `{file}` | {desc} | [Link]({link}) |")
+    readme_lines.append("")
 
-# Update history
-existing_history.update({f: existing_history.get(f, desc) for f, desc in new_descriptions.items()})
-with open(history_path, 'w', encoding='utf-8') as f:
-    json.dump(existing_history, f, indent=2)
+with open(README_FILENAME, 'w', encoding='utf-8') as f:
+    f.write("\n".join(readme_lines))
 
-print(f"[INFO] README saved to {output_path}")
-print(f"[INFO] Descriptions history updated at {history_path}")
-print("[INFO] Script execution complete.")
+print("[INFO] README and documentation successfully updated.")

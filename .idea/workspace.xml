@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="03c4860d-c759-47fb-9964-c9292523c5d6" name="Changes" comment="First AutoReadMe update">
+      <change afterPath="$PROJECT_DIR$/.idea/RGRIT.US.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_11_25,_8_46 PM_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_11_25__8_46PM__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Auto_Documetation/docs/copy_readme_index.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Auto_Documetation/auto_readme.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auto_Documetation/auto_readme.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Auto_Documetation/docs/readme_index.json" beforeDir="false" afterPath="$PROJECT_DIR$/Auto_Documetation/docs/readme_index.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;rgrit&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/rgrit/RGRIT.US_CyberTools.git&quot;,
+    &quot;accountId&quot;: &quot;ed5cb393-7dab-4f33-9325-a289c3d74262&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Network_Security/network_monitoring/capture.pcap" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2u9hQGtzy8bAnXplNiLK1R8hnap" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="sortByType" value="true" />
+    <option name="sortKey" value="BY_TYPE" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.apply_readme.executor": "Run",
+    "Python.auto_readme.executor": "Run",
+    "Python.check_cluster_healthy.executor": "Run",
+    "Python.convert_to_ducky.executor": "Run",
+    "Python.generate_readmes.executor": "Run",
+    "Python.grab_the_text.executor": "Run",
+    "Python.readme.md_autogenerator.executor": "Run",
+    "Python.scan_for_credentials.executor": "Run",
+    "Python.test.executor": "Run",
+    "Python.wifi_packet_sniff.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/administrator/PycharmProjects/CyberTools/Auto_Documetation/docs",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Auto_Documetation/docs" />
+      <recent name="$PROJECT_DIR$/Ducky_Scripts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/Auto_Documetation/docs" />
+      <recent name="$PROJECT_DIR$/Auto_Documetation" />
+      <recent name="$PROJECT_DIR$/Network_Security/wireless_security/WiFi_Discover" />
+      <recent name="$PROJECT_DIR$/Network_Security/wireless_security/Wifi_Attack" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.auto_readme">
+    <configuration name="auto_readme" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="RGRIT.US" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Auto_Documetation" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Auto_Documetation/auto_readme.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="convert_to_ducky" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="RGRIT.US" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Ducky_Scripts" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Ducky_Scripts/convert_to_ducky.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="scan_for_credentials" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="RGRIT.US" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Blue_Team_Scripts/Secure_Code_Review/scan_for_credentials.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="wifi_packet_sniff" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="RGRIT.US" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Network_Security/wireless_security" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Network_Security/wireless_security/WiFi_Discover/wifi_packet_sniff.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.auto_readme" />
+        <item itemvalue="Python.convert_to_ducky" />
+        <item itemvalue="Python.scan_for_credentials" />
+        <item itemvalue="Python.wifi_packet_sniff" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-14705d77f0bb-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.25659.43" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="03c4860d-c759-47fb-9964-c9292523c5d6" name="Changes" comment="" />
+      <created>1741666680080</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1741666680080</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Fresh Start">
+      <option name="closed" value="true" />
+      <created>1741675439418</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1741675439418</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Fresh Start">
+      <option name="closed" value="true" />
+      <created>1741675493552</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1741675493552</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added tools developed today. Cleaned up some of the repo">
+      <option name="closed" value="true" />
+      <created>1741740039969</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1741740039969</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added tools developed today. Cleaned up some of the repo">
+      <option name="closed" value="true" />
+      <created>1741740178509</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1741740178509</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added tools developed today. Cleaned up some of the repo">
+      <option name="closed" value="true" />
+      <created>1742027661183</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1742027661183</updated>
+    </task>
+    <task id="LOCAL-00006" summary="First AutoReadMe update">
+      <option name="closed" value="true" />
+      <created>1742027834549</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1742027834549</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fresh Start" />
+    <MESSAGE value="Added tools developed today. Cleaned up some of the repo" />
+    <MESSAGE value="First AutoReadMe update" />
+    <option name="LAST_COMMIT_MESSAGE" value="First AutoReadMe update" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/generate_prompts.py</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

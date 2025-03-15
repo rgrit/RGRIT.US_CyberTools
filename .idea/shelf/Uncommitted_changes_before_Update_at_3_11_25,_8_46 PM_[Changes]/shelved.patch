@@ -1,0 +1,21 @@
+Index: Ducky_Scripts/convert_to_ducky.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import os\nimport subprocess\n\n# Paths\nDUCKY_SCRIPTS_DIR = \"/home/administrator/PycharmProjects/RGRIT.US/Ducky_Scripts\"\nDUCK_ENCODER_JAR = \"/home/administrator/PycharmProjects/RGRIT.US/Ducky_Scripts/encoder.jar\"\n\n# Ensure the duckencoder.jar file exists\nif not os.path.exists(DUCK_ENCODER_JAR):\n    print(f\"❌ Error: {DUCK_ENCODER_JAR} not found! Please download it.\")\n    exit(1)\n\n# List all .txt files (Ducky Scripts) in the directory\nducky_scripts = [f for f in os.listdir(DUCKY_SCRIPTS_DIR) if f.endswith(\".txt\")]\n\nif not ducky_scripts:\n    print(\"⚠\uFE0F No Ducky script files found in the directory.\")\n    exit(1)\n\n# Process each Ducky script file\nfor script in ducky_scripts:\n    input_file = os.path.join(DUCKY_SCRIPTS_DIR, script)\n    output_file = os.path.join(DUCKY_SCRIPTS_DIR, script.replace(\".txt\", \".bin\"))\n\n    # Encode the script into a binary payload\n    cmd = [\"java\", \"-jar\", DUCK_ENCODER_JAR, \"-i\", input_file, \"-o\", output_file]\n\n    try:\n        subprocess.run(cmd, check=True)\n        print(f\"✅ Successfully converted {script} → {output_file}\")\n    except subprocess.CalledProcessError as e:\n        print(f\"❌ Error encoding {script}: {e}\")\n\nprint(\"\uD83C\uDFAF All scripts have been processed!\")\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Ducky_Scripts/convert_to_ducky.py b/Ducky_Scripts/convert_to_ducky.py
+--- a/Ducky_Scripts/convert_to_ducky.py	(revision c0409135b633ba0d74d70b95c691985a9eff7346)
++++ b/Ducky_Scripts/convert_to_ducky.py	(date 1741740419404)
+@@ -2,8 +2,8 @@
+ import subprocess
+ 
+ # Paths
+-DUCKY_SCRIPTS_DIR = "/home/administrator/PycharmProjects/RGRIT.US/Ducky_Scripts"
+-DUCK_ENCODER_JAR = "/home/administrator/PycharmProjects/RGRIT.US/Ducky_Scripts/encoder.jar"
++DUCKY_SCRIPTS_DIR = "/RGRIT.US/Ducky_Scripts"
++DUCK_ENCODER_JAR = "/RGRIT.US/Ducky_Scripts/encoder.jar"
+ 
+ # Ensure the duckencoder.jar file exists
+ if not os.path.exists(DUCK_ENCODER_JAR):

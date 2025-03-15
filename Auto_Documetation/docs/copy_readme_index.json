@@ -30,20 +30,5 @@
   "OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/reporting/report_generator.py": "**Threat Intelligence Report Generator**\n======================================\n\nThis script generates a Markdown report for a single thr...",
   "OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/utils/api_utils.py": "Queries LLaMA API with retries, handling timeouts and exceptions.",
   "OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/utils/file_utils.py": "Loads/saves article IDs from/to a JSON file.",
-  "OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/utils/rss_utils.py": "Fetches and parses an RSS feed from a given URL, handling exceptions.",
-  "Flipper_Zero/flipper_rf_lock.py": "**RF signal scanner using Flipper device**",
-  "Flipper_Zero/rf_auto_scan_decode.py": "**RF frequency scanner using Flipper device**",
-  "Flipper_Zero/flipper_log_rf.py": "**Flipper Zero serial listener script**",
-  "Flipper_Zero/flipper_rf_scan_log.py": "**RF signal scanner using Flipper Zero device**",
-  "wigle_wifi_android/plot_groups_of_devices.py": "**Bluetooth Device Clustering Script**",
-  "wigle_wifi_android/frequency_plot.py": "**Wi-Fi network analyzer script**",
-  "wigle_wifi_android/11_meter_grouping.py": "**WiFi SSID analysis script**",
-  "wigle_wifi_android/signal_strength_heatmap.py": "**Wi-Fi RSSI heatmap generator**",
-  "wigle_wifi_android/new_thing.py": "**Wi-Fi network visualizer with distance calculations.**",
-  "wigle_wifi_android/weak_auth.py": "**Identifies & reports WiFi networks using weak authentication (open/WEP).**",
-  "wigle_wifi_android/authmode_wildcard_drilldown.py": "**Generates a deep dive report from CSV data based on wildcard AuthMode search.**",
-  "wigle_wifi_android/data_pre-processing.py": "**Loads Wigle Wi-Fi network CSV data into a pandas DataFrame.**",
-  "wigle_wifi_android/geospatial_mapping.py": "Creates interactive Wi-Fi network maps with filters from Wigle CSV data.",
-  "RTL-SDRv4/discover_stuff.py": "**RTL-SDR script to scan and capture 2.4GHz signals**",
-  "RTL-SDRv4/detect_analyze_broad_spectrum.py": "**Plots raw and smoothed signal amplitudes from a CSV file.**"
+  "OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/utils/rss_utils.py": "Fetches and parses an RSS feed from a given URL, handling exceptions."
 }
