@@ -6,7 +6,7 @@ from datetime import datetime
 # Configuration
 REPO_PATH = "/home/administrator/PycharmProjects/CyberTools"
 OUTPUT_DIR = "Auto_Documetation/docs"
-MODEL_NAME = "llama3.3"
+MODEL_NAME = "gemma3:27b"
 GITHUB_URL = "https://github.com/rgrit/RGRIT.US_CyberTools/blob/main"
 README_FILENAME = os.path.join(REPO_PATH, "README.md")
 HISTORY_PATH = os.path.join(REPO_PATH, OUTPUT_DIR, "readme_index.json")
