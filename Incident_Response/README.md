@@ -1,7 +1,3 @@
-Here's a clear, professional, and informative `README.md` you can use in your directory to document your automated Incident Response workflow, emphasizing the benefits of automation over manual investigation:
-
----
-
 # Automated Incident Response: Kernel-Level Rootkit Investigation
 
 ## 📌 Overview
