@@ -37,10 +37,7 @@ By using this repository, you acknowledge and agree to these terms.
 | `OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/config.py` | Config file for RSS and API settings, with time handling and file paths. | [Link](https://github.com/rgrit/RGRIT.US_CyberTools/blob/main/OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/config.py) |
 | `OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/heatmap_generator.py` | Extracts MITRE codes from markdown files and generates a heatmap JSON file. | [Link](https://github.com/rgrit/RGRIT.US_CyberTools/blob/main/OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/heatmap_generator.py) |
 | `OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/main.py` | Fetches RSS feed, analyzes articles for threats, extracts IoCs, and generates reports. | [Link](https://github.com/rgrit/RGRIT.US_CyberTools/blob/main/OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/main.py) |
-| `OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/reporting/report_generator.py` | **Threat Intelligence Report Generator**
-======================================
-
-This script generates a Markdown report for a single thr... | [Link](https://github.com/rgrit/RGRIT.US_CyberTools/blob/main/OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/reporting/report_generator.py) |
+| `OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/reporting/report_generator.py` | **Threat Intelligence Report Generator** ====================================== This script generates a Markdown report for a single thr... | [Link](https://github.com/rgrit/RGRIT.US_CyberTools/blob/main/OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/reporting/report_generator.py) |
 | `OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/utils/api_utils.py` | Queries LLaMA API with retries, handling timeouts and exceptions. | [Link](https://github.com/rgrit/RGRIT.US_CyberTools/blob/main/OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/utils/api_utils.py) |
 | `OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/utils/file_utils.py` | Loads/saves article IDs from/to a JSON file. | [Link](https://github.com/rgrit/RGRIT.US_CyberTools/blob/main/OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/utils/file_utils.py) |
 | `OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/utils/rss_utils.py` | Fetches and parses an RSS feed from a given URL, handling exceptions. | [Link](https://github.com/rgrit/RGRIT.US_CyberTools/blob/main/OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/utils/rss_utils.py) |
@@ -70,7 +67,7 @@ This script generates a Markdown report for a single thr... | [Link](https://git
 ### 📁 `alert_to_slack.py` Directory
 | 📄 **Script Name** | **Description** | **Link** |
 |--------------------|----------------|----------|
-| `kismet/alert_to_slack.py` | Fetches Kismet alerts, sends new ones to Slack, and avoids duplicate notifications. Runs continuously, checking for updates every 60 seconds | [Link](https://github.com/rgrit/RGRIT.US_CyberTools/blob/main/kismet/alert_to_slack.py) |
+| `kismet/alert_to_slack.py` | Fetches Kismet alerts, sends new ones to Slack, & avoids duplicates. Polls every 60 seconds. Requires Kismet URL, API key, & Slack webhook. | [Link](https://github.com/rgrit/RGRIT.US_CyberTools/blob/main/kismet/alert_to_slack.py) |
 
 ### 📁 `authmode_wildcard_drilldown.py` Directory
 | 📄 **Script Name** | **Description** | **Link** |
@@ -150,10 +147,8 @@ This script generates a Markdown report for a single thr... | [Link](https://git
 ### 📁 `network_monitoring` Directory
 | 📄 **Script Name** | **Description** | **Link** |
 |--------------------|----------------|----------|
-| `Network_Security/network_monitoring/sniffer.py` | **Extended Packet Sniffer GUI Application**
-
-This is a graphical user interface (GUI) application for an extended packet sniffer. The app... | [Link](https://github.com/rgrit/RGRIT.US_CyberTools/blob/main/Network_Security/network_monitoring/sniffer.py) |
 | `Network_Security/network_monitoring/flow_analyzer.py` | Network flow analyzer GUI using Scapy & Tkinter. Captures & displays packets, identifies unencrypted flows & potential credentials. Includes | [Link](https://github.com/rgrit/RGRIT.US_CyberTools/blob/main/Network_Security/network_monitoring/flow_analyzer.py) |
+| `Network_Security/network_monitoring/sniffer.py` | **Extended Packet Sniffer GUI Application** This is a graphical user interface (GUI) application for an extended packet sniffer. The app... | [Link](https://github.com/rgrit/RGRIT.US_CyberTools/blob/main/Network_Security/network_monitoring/sniffer.py) |
 
 ### 📁 `new_thing.py` Directory
 | 📄 **Script Name** | **Description** | **Link** |
@@ -193,10 +188,7 @@ This is a graphical user interface (GUI) application for an extended packet snif
 ### 📁 `wireless_security` Directory
 | 📄 **Script Name** | **Description** | **Link** |
 |--------------------|----------------|----------|
-| `Network_Security/wireless_security/WiFi_Discover/wifi_packet_sniff.py` | **WiFi Packet Sniffing and Analysis Script**
-=============================================
-
-This script is designed to capture and analyz... | [Link](https://github.com/rgrit/RGRIT.US_CyberTools/blob/main/Network_Security/wireless_security/WiFi_Discover/wifi_packet_sniff.py) |
+| `Network_Security/wireless_security/WiFi_Discover/wifi_packet_sniff.py` | **WiFi Packet Sniffing and Analysis Script** ============================================= This script is designed to capture and analyz... | [Link](https://github.com/rgrit/RGRIT.US_CyberTools/blob/main/Network_Security/wireless_security/WiFi_Discover/wifi_packet_sniff.py) |
 | `Network_Security/wireless_security/WiFi_Discover/wifi_signal_discovery.py` | Scans nearby WiFi, plots signal strengths, and generates a report. | [Link](https://github.com/rgrit/RGRIT.US_CyberTools/blob/main/Network_Security/wireless_security/WiFi_Discover/wifi_signal_discovery.py) |
 | `Network_Security/wireless_security/Wifi_Attack/wifi_deauth.py` | WiFi deauthentication attack script sending spoofed packets. | [Link](https://github.com/rgrit/RGRIT.US_CyberTools/blob/main/Network_Security/wireless_security/Wifi_Attack/wifi_deauth.py) |
 | `Network_Security/wireless_security/Wifi_Attack/wifi_jam.py` | WiFi beacon flooding attack script. Sends fake beacons with random SSIDs/BSSIDs. | [Link](https://github.com/rgrit/RGRIT.US_CyberTools/blob/main/Network_Security/wireless_security/Wifi_Attack/wifi_jam.py) |

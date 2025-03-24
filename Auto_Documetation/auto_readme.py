@@ -1,5 +1,6 @@
 import os
 import json
+import re
 import ollama
 from datetime import datetime
 
@@ -24,6 +25,12 @@ def log_warn(msg):
 def log_error(msg):
     print(f"\033[91m[ERROR]\033[0m {msg}")
 
+def sanitize_desc(text):
+    """Collapse and trim description to make it Markdown table-safe."""
+    text = text.replace('\n', ' ').replace('\r', '')
+    text = re.sub(r'\s+', ' ', text)
+    return text.strip()[:140]
+
 # === Setup Output Directory ===
 os.makedirs(os.path.join(REPO_PATH, OUTPUT_DIR), exist_ok=True)
 log_info(f"Ensured output directory exists at: {OUTPUT_DIR}")
@@ -38,38 +45,40 @@ else:
     log_info("No previous history found. Starting fresh.")
 
 new_descriptions = {}
-
-# === File Scanning & Description Generation ===
 files_scanned = 0
 new_files = 0
 
+# === File Scanning & Description Generation ===
 for root, dirs, files in os.walk(REPO_PATH):
-    dirs[:] = [d for d in dirs if d not in ['.venv', OUTPUT_DIR.split('/')[0]]]
+    # Skip virtual environments and output dirs
+    dirs[:] = [d for d in dirs if d not in ['.venv', OUTPUT_DIR.split('/')[0], '__pycache__']]
     for file in files:
         if file.endswith(('.py', '.yml')) and file != os.path.basename(__file__):
             rel_path = os.path.relpath(os.path.join(root, file), REPO_PATH)
             files_scanned += 1
 
             if rel_path not in history:
-                log_info(f"Analyzing new file: {rel_path}")
+                log_info(f"🧠 Analyzing: {rel_path}")
                 try:
                     with open(os.path.join(root, file), 'r', encoding='utf-8') as f:
                         content = f.read()
+
                     response = ollama.chat(model=MODEL_NAME, messages=[
                         {"role": "user", "content": f"Provide a concise description (max 140 chars) of this script:\n{content}"}
                     ])
-                    desc = response['message']['content'].strip()[:140]
+                    desc = sanitize_desc(response['message']['content'])
                     new_descriptions[rel_path] = desc
                     history[rel_path] = desc
                     new_files += 1
+                    log_success(f"📝 Documented: {rel_path}")
                 except Exception as e:
-                    log_error(f"Failed to analyze {rel_path}: {e}")
+                    log_error(f"❌ Failed to analyze {rel_path}: {e}")
                     history[rel_path] = "*(Description generation failed)*"
 
-# === Save History ===
+# === Save Updated History ===
 with open(HISTORY_PATH, 'w', encoding='utf-8') as f:
     json.dump(history, f, indent=2)
-log_success("History file updated.")
+log_success("📚 History file updated.")
 
 # === Disclaimer Block ===
 DISCLAIMER_TEXT = """
@@ -98,25 +107,29 @@ readme_lines = [
 for new_file in new_descriptions:
     readme_lines.append(f"- 🆕 **Added** `{new_file}`")
 
-# Group by folder/category
+readme_lines.append("\n## Repository Overview\n")
+
+# Group by first-level folder (category)
 categories = {}
 for file, desc in history.items():
-    category = file.split(os.sep)[1] if len(file.split(os.sep)) > 1 else "Root"
+    parts = file.split(os.sep)
+    category = parts[1] if len(parts) > 1 else "Root"
     categories.setdefault(category, {})[file] = desc
 
-readme_lines.append("\n## Repository Overview\n")
 for cat, files in sorted(categories.items()):
     readme_lines.append(f"### 📁 `{cat}` Directory")
     readme_lines.append("| 📄 **Script Name** | **Description** | **Link** |")
     readme_lines.append("|--------------------|----------------|----------|")
-    for file, desc in files.items():
+    for file, desc in sorted(files.items()):
         link = f"{GITHUB_URL}/{file}"
-        readme_lines.append(f"| `{file}` | {desc} | [Link]({link}) |")
-    readme_lines.append("")  # Blank line between sections
+        clean_desc = sanitize_desc(desc)
+        readme_lines.append(f"| `{file}` | {clean_desc} | [Link]({link}) |")
+    readme_lines.append("")  # blank line between sections
 
+# === Save README ===
 with open(README_FILENAME, 'w', encoding='utf-8') as f:
     f.write("\n".join(readme_lines))
-log_success(f"README generated at {README_FILENAME}")
+log_success(f"🗂️ README generated at {README_FILENAME}")
 
 # === Summary ===
 print("\n\033[96m📊 Summary:\033[0m")
