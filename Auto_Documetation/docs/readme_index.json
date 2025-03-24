@@ -45,5 +45,8 @@
   "wigle_wifi_android/data_pre-processing.py": "**Loads Wigle Wi-Fi network CSV data into a pandas DataFrame.**",
   "wigle_wifi_android/geospatial_mapping.py": "Creates interactive Wi-Fi network maps with filters from Wigle CSV data.",
   "RTL-SDRv4/discover_stuff.py": "**RTL-SDR script to scan and capture 2.4GHz signals**",
-  "RTL-SDRv4/detect_analyze_broad_spectrum.py": "**Plots raw and smoothed signal amplitudes from a CSV file.**"
+  "RTL-SDRv4/detect_analyze_broad_spectrum.py": "**Plots raw and smoothed signal amplitudes from a CSV file.**",
+  "kismet/alert_to_slack.py": "Fetches Kismet alerts, sends new ones to Slack, and avoids duplicate notifications. Runs continuously, checking for updates every 60 seconds",
+  "Network_Security/network_monitoring/flow_analyzer.py": "Network flow analyzer GUI using Scapy & Tkinter. Captures & displays packets, identifies unencrypted flows & potential credentials. Includes",
+  "Incident_Response/possible_rootkit_investigation.py": "Linux incident response script. Investigates a PID for rootkit/malware signs via system calls, network checks, & rootkit scanners. Outputs f"
 }
