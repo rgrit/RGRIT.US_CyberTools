@@ -50,7 +50,6 @@ new_files = 0
 
 # === File Scanning & Description Generation ===
 for root, dirs, files in os.walk(REPO_PATH):
-    # Skip virtual environments and output dirs
     dirs[:] = [d for d in dirs if d not in ['.venv', OUTPUT_DIR.split('/')[0], '__pycache__']]
     for file in files:
         if file.endswith(('.py', '.yml')) and file != os.path.basename(__file__):
@@ -99,15 +98,38 @@ By using this repository, you acknowledge and agree to these terms.
 # === README Generation ===
 update_date = datetime.now().strftime("%Y-%m-%d")
 readme_lines = [
-    "# 🚀 RGRIT CyberTools 🔥\n",
+    "# 🚀 RGRIT CyberTools 🔥",
+
+    "## 👋 About Me\n"
+    "Hi, I’m an AI-native cybersecurity technologist who prototypes fast, solves hard problems, and shares tools that defenders can actually use. "
+    "This repo is my personal lab — part red team, part blue team, part builder. I combine rapid programming, open-source, and AI-assisted development to accelerate threat detection, automation, and research.\n",
+
+    "## 🧠 Mission\n"
+    "This repository is a living archive of tools I’ve built or prototyped to support cybersecurity research, network monitoring, detection engineering, "
+    "and incident response. AI isn’t a crutch — it’s a catalyst that lets me go from idea to working tool faster than traditional methods. "
+    "These projects are here to educate, inspire, and empower defenders.\n",
+
     DISCLAIMER_TEXT,
-    f"\n## Recent Updates ({update_date})\n"
+
+    f"\n## 📅 Recent Updates ({update_date})\n"
 ]
 
 for new_file in new_descriptions:
     readme_lines.append(f"- 🆕 **Added** `{new_file}`")
 
-readme_lines.append("\n## Repository Overview\n")
+readme_lines.append("\n## 🔍 Featured Tools\n")
+readme_lines.extend([
+    "- **🕵️‍♂️ Rootkit Investigator** – Linux incident response script that investigates potential rootkits or malware on a live system.\n"
+    "  → `Incident_Response/possible_rootkit_investigation.py`\n",
+    "- **🌐 Network Flow Analyzer (GUI)** – Visualizes unencrypted flows and credentials using Scapy and Tkinter. Fully interactive.\n"
+    "  → `Network_Security/network_monitoring/flow_analyzer.py`\n",
+    "- **🧠 AI-Powered Threat Intel** – RSS-to-report pipeline that extracts IOCs, generates detection heatmaps, and summarizes articles using LLMs.\n"
+    "  → `OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/`\n",
+    "- **📡 Flipper + Sigma Rules** – RF scanning, BadUSB detection, and Slack alerting with Flipper Zero + Kismet + custom Sigma rules.\n"
+    "  → `Flipper_Zero/`, `Custom_Sigma_Rules/`\n"
+])
+
+readme_lines.append("\n## 📁 Repository Overview\n")
 
 # Group by first-level folder (category)
 categories = {}
@@ -124,7 +146,7 @@ for cat, files in sorted(categories.items()):
         link = f"{GITHUB_URL}/{file}"
         clean_desc = sanitize_desc(desc)
         readme_lines.append(f"| `{file}` | {clean_desc} | [Link]({link}) |")
-    readme_lines.append("")  # blank line between sections
+    readme_lines.append("")
 
 # === Save README ===
 with open(README_FILENAME, 'w', encoding='utf-8') as f:

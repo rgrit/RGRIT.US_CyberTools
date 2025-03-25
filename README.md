@@ -1,4 +1,9 @@
 # 🚀 RGRIT CyberTools 🔥
+## 👋 About Me
+Hi, I’m an AI-native cybersecurity technologist who prototypes fast, solves hard problems, and shares tools that defenders can actually use. This repo is my personal lab — part red team, part blue team, part builder. I combine rapid programming, open-source, and AI-assisted development to accelerate threat detection, automation, and research.
+
+## 🧠 Mission
+This repository is a living archive of tools I’ve built or prototyped to support cybersecurity research, network monitoring, detection engineering, and incident response. AI isn’t a crutch — it’s a catalyst that lets me go from idea to working tool faster than traditional methods. These projects are here to educate, inspire, and empower defenders.
 
 
 # 🚨 Disclaimer
@@ -15,13 +20,25 @@ All scripts, tools, and documentation are provided "as-is" without any warranty.
 By using this repository, you acknowledge and agree to these terms.
 
 
-## Recent Updates (2025-03-24)
+## 📅 Recent Updates (2025-03-25)
 
-- 🆕 **Added** `kismet/alert_to_slack.py`
-- 🆕 **Added** `Network_Security/network_monitoring/flow_analyzer.py`
-- 🆕 **Added** `Incident_Response/possible_rootkit_investigation.py`
 
-## Repository Overview
+## 🔍 Featured Tools
+
+- **🕵️‍♂️ Rootkit Investigator** – Linux incident response script that investigates potential rootkits or malware on a live system.
+  → `Incident_Response/possible_rootkit_investigation.py`
+
+- **🌐 Network Flow Analyzer (GUI)** – Visualizes unencrypted flows and credentials using Scapy and Tkinter. Fully interactive.
+  → `Network_Security/network_monitoring/flow_analyzer.py`
+
+- **🧠 AI-Powered Threat Intel** – RSS-to-report pipeline that extracts IOCs, generates detection heatmaps, and summarizes articles using LLMs.
+  → `OSINT_Scripts/CTI_and_Detection/rss_feed_to_detection/`
+
+- **📡 Flipper + Sigma Rules** – RF scanning, BadUSB detection, and Slack alerting with Flipper Zero + Kismet + custom Sigma rules.
+  → `Flipper_Zero/`, `Custom_Sigma_Rules/`
+
+
+## 📁 Repository Overview
 
 ### 📁 `11_meter_grouping.py` Directory
 | 📄 **Script Name** | **Description** | **Link** |
